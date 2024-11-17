@@ -1,3 +1,4 @@
+from conftest import LOCAL_HOST
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,7 +8,8 @@ def test_add_category(driver):
     """
     Verifica que se puede agregar una categoría correctamente desde un modal.
     """
-    driver.get("http://localhost:81/Control/categorias.php")
+
+    driver.get(f"{LOCAL_HOST}/Control/categorias.php")
 
     open_modal_button = WebDriverWait(driver, 2).until(
         EC.element_to_be_clickable((By.CLASS_NAME, "btn-success"))

@@ -1,3 +1,4 @@
+from conftest import LOCAL_HOST
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
@@ -7,7 +8,7 @@ def test_add_product(driver):
     """
     Verifica que se puede agregar un producto correctamente.
     """
-    driver.get("http://localhost:81/Control/stock.php")
+    driver.get(f"{LOCAL_HOST}/Control/stock.php")
 
     add_product_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.CLASS_NAME, "btn-success"))
@@ -18,7 +19,6 @@ def test_add_product(driver):
         EC.visibility_of_element_located((By.ID, "nuevoProducto"))
     )
 
-    # Localizar campos del formulario dentro del modal
     codigo = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, "codigo"))
     )

@@ -26,3 +26,9 @@ venv\Scripts\activate          # Windows
 ```
 pip install -r requirements.txt
 ```
+
+## **Correr los tests**
+
+```
+pytest ./tests
+```

@@ -1,3 +1,4 @@
+from conftest import LOCAL_HOST
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,7 +8,7 @@ def test_login_invalid_credentials(driver):
     """
     Verifica el manejo correcto al usar credenciales inválidas.
     """
-    driver.get("http://localhost:81/Control/login.php")
+    driver.get(f"{LOCAL_HOST}/Control/login.php")
 
     username_field = driver.find_element(By.NAME, "user_name")
     password_field = driver.find_element(By.NAME, "user_password")
@@ -29,7 +30,7 @@ def test_login_valid_credentials(driver):
     """
     Verifica el inicio de sesión exitoso con credenciales válidas.
     """
-    driver.get("http://localhost:81/Control/login.php")
+    driver.get(f"{LOCAL_HOST}/Control/login.php")
 
     username_field = driver.find_element(By.NAME, "user_name")
     password_field = driver.find_element(By.NAME, "user_password")
